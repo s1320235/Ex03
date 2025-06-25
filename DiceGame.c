@@ -6,12 +6,18 @@
 
 int Dice();
 void Check(int);
+void Greet();
+
+char name[10];
 
 int main()
 {
     int sum = 0;
 
     srand(time(NULL));
+
+    //挨拶をする
+    Greet();
 
     //サイコロを回す
     printf("Rolling Dice...\n");
@@ -25,6 +31,20 @@ int main()
     Check(sum);
 
     return 0;
+}
+
+//挨拶をする
+void Greet()
+{
+    //名前を聞く
+    printf("What your name? \n");
+    printf("> ");
+
+    //名前を読み込む
+    scanf("%s", name);
+
+    //挨拶をする
+    printf("Hello, %s! \n", name);
 }
 
 //サイコロの目を出す
@@ -45,10 +65,10 @@ void Check(int sum)
 {
     if(sum > STANDERD)
     {
-        printf("You won! \n");
+        printf("%s won! \n", name);
     }
     else
     {
-        printf("You lost! \n");
+        printf("%s lost! \n", name);
     }
 }
