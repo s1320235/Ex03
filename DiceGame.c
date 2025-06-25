@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define STANDERD 7
+
 int Dice();
+void Check(int);
 
 int main()
 {
@@ -17,6 +20,10 @@ int main()
         sum += Dice();
     }
     printf("Total value: %d \n", sum);
+
+    //勝敗をチェック
+    Check(sum);
+
     return 0;
 }
 
@@ -31,4 +38,17 @@ int Dice()
     printf("%d \n", n);
 
     return n;
+}
+
+//勝敗をチェックする
+void Check(int sum)
+{
+    if(sum > STANDERD)
+    {
+        printf("You won! \n");
+    }
+    else
+    {
+        printf("You lost! \n");
+    }
 }
